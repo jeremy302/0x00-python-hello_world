@@ -1,3 +1,2 @@
-#!/usr/bin/python3
-import py_compile, os
-py_compile.compile(os.environ['PYFILE'], os.environ['PYFILE'] + 'c')
+#!/usr/bin/bash
+python -c "import py_compile; py_compile.compile('$PYFILE', '$PYFILE' + 'c')"
