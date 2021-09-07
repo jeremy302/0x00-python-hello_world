@@ -1,5 +1,4 @@
 #!/usr/bin/python3
 def islower(c):
-    if c:
-        c = c[0]
-    return bool(bool(c) and ord(c) >= ord('a') and ord(c) <= ord('z'))
+    return bool(bool(c) and type(c) == str and len(c) == 1 and
+                ord(c) >= ord('a') and ord(c) <= ord('z'))
