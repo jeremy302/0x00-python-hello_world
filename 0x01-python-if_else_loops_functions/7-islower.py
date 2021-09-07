@@ -1,3 +1,3 @@
 #!/usr/bin/python3
 def islower(c):
-    return bool(c and c >= 'a' and c <= 'z')
+    return bool(bool(c) and ord(c) >= ord('a') and ord(c) <= ord('z'))
