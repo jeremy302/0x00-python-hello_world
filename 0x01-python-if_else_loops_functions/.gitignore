@@ -1,0 +1,10 @@
+~*~
+*~
+~*
+#*#
+*.pyc
+*.txt
+*.org
+*.out
+test*
+*test
