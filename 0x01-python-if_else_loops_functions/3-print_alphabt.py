@@ -1,2 +1,5 @@
 #!/usr/bin/python3
-print('abcdfghijklmnoprstuvwxyz', end='')
+for c in range(ord('a'), ord('z') + 1):
+    if chr(c) not in ['q', 'e']:
+        print(chr(c), end='')
+
