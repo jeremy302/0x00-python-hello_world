@@ -1,3 +1,3 @@
 #!/usr/bin/python3
 def islower(c):
-    return bool(type(c) == str and len(c) == 1 and c >= 'a' and c <= 'z')
+    return bool(type(c) == str and all(_c >= 'a' and _c <= 'z' for _c in c))
