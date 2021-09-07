@@ -1,3 +1,3 @@
 #!/usr/bin/python3
 for i in range(99):
-    print('%d = %#x' % (i, i))
+    print('{:d} = {:#x}'.format(i, i))
