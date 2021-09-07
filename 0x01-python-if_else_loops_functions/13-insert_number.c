@@ -23,6 +23,6 @@ listint_t *insert_node(listint_t **head, int number)
 	else if (current->n == number)
 		free(node), node = current;
 	else if (current->n > number)
-		prev == NULL ? (*head = node) : (prev->next = node), node->next = current;
+		(prev == NULL ? (*head = node) : (prev->next = node)), node->next = current;
 	return (node);
 }
