@@ -1,5 +1,5 @@
 #include "lists.h"
-
+#include <stdio.h>
 /**
  * is_palindrome - checks is a list is a palindrome
  * @head: head of the list
@@ -15,13 +15,15 @@ int is_palindrome(listint_t **head)
 		return (head != NULL);
 	current = *head;
 	while (current)
-		len++, current = current->next;
-	nums = malloc(sizeof(int) * len);
+		++len, current = current->next;
+	nums = malloc(sizeof(int) * (len / 2));
 	current = *head;
-	while (current)
-		nums[i++] = current->n, current = current->next;
-	for (i = 0; i < (len / 2) + (len % 2); i++)
-		if (nums[i] != nums[len - i - 1])
+	for (i = 0; i < len / 2; ++i)
+		nums[i] = current->n, current = current->next;
+	if (len % 2)
+		current = current->next;
+	for (--i; i >= 0; --i, current = current->next)
+		if (current->n != nums[i])
 			return (free(nums), 0);
 	return (free(nums), 1);
 }
