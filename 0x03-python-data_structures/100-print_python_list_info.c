@@ -1,5 +1,4 @@
-#include "/usr/include/python3.4/object.h"
-#include "/usr/include/python3.4/listobject.h"
+#include "/usr/include/python3.4/Python.h"
 #include <stdio.h>
 #include <stdlib.h>
 
