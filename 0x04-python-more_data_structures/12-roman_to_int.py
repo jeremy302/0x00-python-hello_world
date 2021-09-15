@@ -18,5 +18,5 @@ def roman_to_int(roman_string):
             i += 1
         else:
             num += v0
-            i += 1
+        i += 1
     return num
