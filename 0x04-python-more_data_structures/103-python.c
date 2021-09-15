@@ -1,4 +1,4 @@
-#include "/usr/include/python3.4/Python.h"
+#include "/usr/include/python3.8/Python.h"
 #include <stdio.h>
 
 /**
@@ -9,7 +9,7 @@
  */
 void print_python_bytes(PyObject *p)
 {
-	char *bytes = NULL, *str = NULL;
+	char *bytes = NULL;
 	Py_ssize_t len = 0;
 	int i = 0, repr_len = 0;
 
