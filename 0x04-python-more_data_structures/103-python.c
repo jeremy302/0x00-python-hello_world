@@ -15,6 +15,7 @@ void print_python_bytes(PyObject *p)
 
 	if (p == NULL || strcmp(p->ob_type->tp_name, "bytes"))
 	{
+		printf("[.] bytes object info\n");
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
@@ -47,9 +48,11 @@ void print_python_list(PyObject *p)
 
 	if (p == NULL || strcmp(p->ob_type->tp_name, "list"))
 	{
+		printf("[*] Python list info\n");
 		printf("  [ERROR] Invalid List Object\n");
 		return;
 	}
+	printf("[*] Python list info\n");
 	printf("[*] Size of the Python List = %ld\n", len);
 	printf("[*] Allocated = %ld\n", alloc_len);
 	for (i = 0; i < len; ++i)
