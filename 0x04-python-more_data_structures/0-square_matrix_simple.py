@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
-    r = matrix.copy()
-    for row in r:
-        for cell in row:
-            cell = cell ** 2
+    for i in range(len(matrix)):
+        for j in range(len(matrix[i])):
+            matrix[i][j] **= 2
