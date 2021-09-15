@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
     if type(roman_string) is not str or not roman_string:
-        return None
+        return 0
     roman_string = roman_string.lower()
     tbl = {'': 0, 'i': 1, 'v': 5, 'x': 10,
            'l': 50, 'c': 100, 'd': 500, 'm': 1000}
