@@ -6,8 +6,10 @@ lib = ctypes.CDLL('./libPython.so')
 lib.print_python_list.argtypes = [ctypes.py_object]
 lib.print_python_bytes.argtypes = [ctypes.py_object]
 lib.print_python_float.argtypes = [ctypes.py_object]
-# lib.print_python_float(-1234567891011.499);
-# exit()
+print('abc', lib.print_python_float(-1234567891011.499))
+lib.print_python_list([b'', None])
+lib.print_python_bytes(b'')
+exit()
 s = b"Hello"
 lib.print_python_bytes(s);
 b = b'\xff\xf8\x00\x00\x00\x00\x00\x00';
