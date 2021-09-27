@@ -1,5 +1,7 @@
 #include <Python.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <inttypes.h>
 
 /**
  * print_python_bytes - prints some info about a python bytes object
@@ -46,9 +48,8 @@ void print_python_bytes(PyObject *p)
  */
 void print_python_float(PyObject *p)
 {
-	double v;
-	char v_str[100] = {0};
-	int v_i = 0;
+	PyObject *repr, *repr_str;
+	char *repr_chrs;
 
 	setbuf(stdout, NULL);
 	if (p == NULL || strcmp(p->ob_type->tp_name, "float"))
@@ -57,15 +58,14 @@ void print_python_float(PyObject *p)
 		printf("  [ERROR] Invalid Float Object\n");
 		return;
 	}
-	v = ((PyFloatObject *)p)->ob_fval;
-	v_i = sprintf(v_str, "%.15f", v) - 1;
-	v_str[17] = '\0';
-	while (v_str[v_i] == '0' && v_str[v_i - 1] != '.')
-		--v_i;
-	v_str[v_i + 1] = '\0';
+	repr = ((PyObject *)p->ob_type->tp_repr(p));
+	repr_str = PyUnicode_AsEncodedString(repr, "utf-8", "~E~");
+	repr_chrs = ((PyBytesObject *)repr_str)->ob_sval;
 
 	printf("[.] float object info\n");
-	printf("  value: %s\n", v_str);
+	printf("  value: %s\n", repr_chrs);
+	Py_XDECREF(repr);
+	Py_XDECREF(repr_str);
 }
 
 /**

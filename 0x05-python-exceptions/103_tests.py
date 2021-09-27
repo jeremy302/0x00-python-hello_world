@@ -6,6 +6,9 @@ lib = ctypes.CDLL('./libPython.so')
 lib.print_python_list.argtypes = [ctypes.py_object]
 lib.print_python_bytes.argtypes = [ctypes.py_object]
 lib.print_python_float.argtypes = [ctypes.py_object]
+lib.print_python_bytes(b'')
+lib.print_python_float(1.23)
+exit(0)
 print('abc', lib.print_python_float(-1234567891011.499))
 lib.print_python_list([b'', None])
 lib.print_python_bytes(b'')
