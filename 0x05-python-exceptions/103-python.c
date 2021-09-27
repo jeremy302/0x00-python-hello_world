@@ -1,6 +1,5 @@
 #include <Python.h>
 #include <stdio.h>
-#include <stdlib.h>
 
 /**
  * print_python_bytes - prints some info about a python bytes object
@@ -18,11 +17,13 @@ void print_python_bytes(PyObject *p)
 	{
 		printf("[.] bytes object info\n");
 		printf("  [ERROR] Invalid Bytes Object\n");
+		fflush(stdout);
 		return;
 	}
 	len = ((PyVarObject *)p)->ob_size;
 	bytes = ((PyBytesObject *)p)->ob_sval;
 	repr_len = len >= 10 ? 10 : len;
+	printf("sssize: %ld\n", PyBytes_GET_SIZE(p));
 
 	printf("[.] bytes object info\n");
 	printf("  size: %ld\n", (long)len);
@@ -36,6 +37,7 @@ void print_python_bytes(PyObject *p)
 	if (repr_len < 10)
 		printf(" 00");
 	printf("\n");
+	fflush(stdout);
 }
 
 /**
@@ -47,13 +49,14 @@ void print_python_bytes(PyObject *p)
 void print_python_float(PyObject *p)
 {
 	double v;
-	char v_str[20] = {0};
+	char v_str[100] = {0};
 	int v_i = 0;
 
 	if (p == NULL || strcmp(p->ob_type->tp_name, "float"))
 	{
 		printf("[.] float object info\n");
 		printf("  [ERROR] Invalid Float Object\n");
+		fflush(stdout);
 		return;
 	}
 	v = ((PyFloatObject *)p)->ob_fval;
@@ -64,6 +67,7 @@ void print_python_float(PyObject *p)
 
 	printf("[.] float object info\n");
 	printf("  value: %s\n", v_str);
+	fflush(stdout);
 }
 
 /**
@@ -80,6 +84,7 @@ void print_python_list(PyObject *p)
 	{
 		printf("[*] Python list info\n");
 		printf("  [ERROR] Invalid List Object\n");
+		fflush(stdout);
 		return;
 	}
 	len = ((PyVarObject *)p)->ob_size;
@@ -99,5 +104,6 @@ void print_python_list(PyObject *p)
 		else if (!strcmp(tp, "float"))
 			print_python_float(item);
 	}
+	fflush(stdout);
 }
 
