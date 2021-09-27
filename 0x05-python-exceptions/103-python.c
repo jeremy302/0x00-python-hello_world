@@ -23,7 +23,6 @@ void print_python_bytes(PyObject *p)
 	len = ((PyVarObject *)p)->ob_size;
 	bytes = ((PyBytesObject *)p)->ob_sval;
 	repr_len = len >= 10 ? 10 : len;
-	printf("sssize: %ld\n", PyBytes_GET_SIZE(p));
 
 	printf("[.] bytes object info\n");
 	printf("  size: %ld\n", (long)len);
