@@ -13,6 +13,7 @@ void print_python_bytes(PyObject *p)
 	Py_ssize_t len = 0;
 	int i = 0, repr_len = 0;
 
+	fflush(stdout);
 	if (p == NULL || strcmp(p->ob_type->tp_name, "bytes"))
 	{
 		printf("[.] bytes object info\n");
@@ -51,6 +52,7 @@ void print_python_float(PyObject *p)
 	char v_str[100] = {0};
 	int v_i = 0;
 
+	fflush(stdout);
 	if (p == NULL || strcmp(p->ob_type->tp_name, "float"))
 	{
 		printf("[.] float object info\n");
@@ -79,6 +81,7 @@ void print_python_list(PyObject *p)
 {
 	long i = 0, len, alloc_len;
 
+	fflush(stdout);
 	if (p == NULL || strcmp(p->ob_type->tp_name, "list"))
 	{
 		printf("[*] Python list info\n");
