@@ -51,9 +51,12 @@ class Square:
         self.__position = value
 
     def __repr__(self):
-        ''' gets the string representation of the square '''
+        ''' gets the human-readable representation of the square '''
         if self.area == 0:
             return '\n'
         return "{:s}".format(self.__position[1] * '\n' +
                              (self.__position[0] * ' ' +
                              '#' * self.__size + '\n') * self.__size)[:-1]
+    def __str__(self):
+        ''' gets the string representation of the square '''
+        return self.__repr__();
