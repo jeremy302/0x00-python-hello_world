@@ -7,7 +7,7 @@ import math
 
 class MagicClass:
     ''' A class to calculate the area and circumference of a circle '''
-    def __init__(self, radius):
+    def __init__(self, radius = 0):
         ''' constructs a circle '''
         self.__radius = 0
         if type(radius) is not int and type(radius) is not float:
