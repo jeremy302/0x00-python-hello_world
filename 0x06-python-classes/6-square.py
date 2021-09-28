@@ -33,9 +33,12 @@ class Square:
 
     def my_print(self):
         ''' prints a square '''
-        print("{:s}".format(self.__position[1] * '\n' +
-                            (self.__position[0] * ' ' +
-                             '#' * self.__size + '\n') * self.__size)[:-1])
+        if self.size == 0:
+            print()
+        else:
+            print("{:s}".format(self.__position[1] * '\n' +
+                                (self.__position[0] * ' ' +
+                                 '#' * self.__size + '\n') * self.__size)[:-1])
 
     @property
     def position(self):
