@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-''' module documentation '''
+''' module for the `Square Class '''
+
+
 class Square:
-    ''' class documentation '''
+    ''' A Sqaure. You can set it's size and calculate it's area.
+The size must be an integer. '''
     pass
