@@ -6,12 +6,8 @@ class Square:
     ''' A Sqaure; a shape whose sides are all of the same length '''
     def __init__(self, size=0, position=(0, 0)):
         '''  Square constructor '''
-        if type(size) != int:
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     def area(self):
         ''' calculates the area of the square '''
@@ -33,9 +29,12 @@ class Square:
 
     def my_print(self):
         ''' prints a square '''
-        print("{:s}".format(self.__position[1] * '\n' +
-                            (self.__position[0] * ' ' +
-                             '#' * self.__size + '\n') * self.__size)[:-1])
+        if self.size == 0:
+            print()
+        else:
+            print("{:s}".format(self.__position[1] * '\n' +
+                                (self.__position[0] * ' ' +
+                                 '#' * self.__size + '\n') * self.__size)[:-1])
 
     @property
     def position(self):
@@ -45,12 +44,16 @@ class Square:
     @position.setter
     def position(self, value):
         ''' sets the position of the square '''
-        if type(value) != tuple or len(value) != 2:
+        if (type(value) != tuple or len(value) != 2 or type(value[0]) != int or
+            type(value[1]) != int or (value[0] < 0 or
+                                      value[1] < 0)):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
     def __repr__(self):
         ''' gets the string representation of the square '''
+        if self.area == 0:
+            return '\n'
         return "{:s}".format(self.__position[1] * '\n' +
                              (self.__position[0] * ' ' +
                              '#' * self.__size + '\n') * self.__size)[:-1]
