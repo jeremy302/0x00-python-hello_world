@@ -52,7 +52,7 @@ class Rectangle:
 
     def __str__(self):
         ''' returns a string form of the rectangle '''
-        return ((str(self.print_symbol) * self.width +
+        return ((str('#') * self.width +
                  bool(self.width) * '\n') * self.height)[0:-1]
 
     def __repr__(self):
