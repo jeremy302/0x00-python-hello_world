@@ -49,4 +49,5 @@ class Rectangle:
 
     def __str__(self):
         ''' returns a string form of the rectangle '''
-        return (('#' * self.width + '\n') * self.height)[0:-1]
+        return (('#' * self.width + bool(self.width) * '\n') *
+                self.height)[0:-1]
