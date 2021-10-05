@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-i = 0
 def magic_string():
-    global i; i += 1; return ("BestSchool, " * i)[:-2]
+    magic_string.__dict__['i'] = magic_string.__dict__.get('i', 0) + 1
+    return ("BestSchool, " * magic_string.__dict__['i'])[:-2]
