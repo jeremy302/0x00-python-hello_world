@@ -15,16 +15,18 @@ class LockedDict(dict):
 class LockedClass:
     ''' A class that allows certain attributes to be set '''
 
+    def __init__(self):
+        self.__dict__ = LockedDict()
     def __setattr__(self, name, value):
         ''' controls which attributes can be set '''
-        if name != 'first_name':
+        if type(self.__dict__) == LockedDict and name != 'first_name':
             raise AttributeError("object has no attribute {}".format(
                 repr(name)))
         super().__setattr__(name, value)
 
     def __setitem__(self, name, value):
         ''' controls which attributes can be set with index notation '''
-        if name != 'first_name':
+        if type(self.__dict__) == LockedDict and name != 'first_name':
             raise AttributeError("object has no attribute {}".format(
                 repr(name)))
         self.first_name = value
