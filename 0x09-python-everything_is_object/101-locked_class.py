@@ -7,5 +7,5 @@ class LockedClass:
     def __setattr__(self, name, value):
         ''' controls which attributes can be set '''
         if name != 'first_name':
-            raise AttributeError("object has no attribute 'last_name'")
+            raise AttributeError("object has no attribute '{:s}'".format(name))
         super().__setattr__(name, value)
