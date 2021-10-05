@@ -16,7 +16,9 @@ class LockedClass:
     ''' A class that allows certain attributes to be set '''
 
     def __init__(self):
-        self.__dict__ = LockedDict()
+        ''' class constructor '''
+        self.__dict__ = LockedDict(self.__dict__)
+
     def __setattr__(self, name, value):
         ''' controls which attributes can be set '''
         if type(self.__dict__) == LockedDict and name != 'first_name':
