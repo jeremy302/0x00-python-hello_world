@@ -33,11 +33,5 @@ def lazy_matrix_mul(m_a, m_b):
         raise TypeError("m_a should contain only integers or floats")
     if any(any(type(cell) not in [int, float] for cell in row) for row in m_b):
         raise TypeError("m_b should contain only integers or floats")
-    if any(len(row) != len(m_a[0]) for row in m_a):
-        raise TypeError("each row of m_a must be of the same size")
-    if any(len(row) != len(m_b[0]) for row in m_b):
-        raise TypeError("each row of m_b must be of the same size")
-    if len(m_a[0]) != len(m_b):
-        raise ValueError("m_a and m_b can't be multiplied")
 
     return (np.matrix(m_a) * np.matrix(m_b)).tolist()
