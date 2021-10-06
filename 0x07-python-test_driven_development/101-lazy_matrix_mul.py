@@ -7,7 +7,7 @@ matrix_mul([[1]], [[2]]) -> [[2]]
 import numpy as np
 
 
-def matrix_mul(m_a, m_b):
+def lazy_matrix_mul(m_a, m_b):
     ''' returns the product of 2 matrices using numpy
 
     2 matrices are multiplied with numpy and the result is returned.
@@ -40,4 +40,4 @@ def matrix_mul(m_a, m_b):
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
 
-    return np.matrix(m_a) * np.matrix(m_b)
+    return (np.matrix(m_a) * np.matrix(m_b)).tolist()
