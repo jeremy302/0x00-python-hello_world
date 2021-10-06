@@ -1,0 +1,57 @@
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name('')
+My name is  
+>>> say_my_name('john', 'smith')
+My name is john smith
+>>> say_my_name('john')
+My name is john 
+>>> say_my_name('  ')
+My name is    
+>>> say_my_name('', '')
+My name is  
+>>> say_my_name(' ', ' ')
+My name is    
+>>> say_my_name('', 'smith')
+My name is  smith
+>>> say_my_name(' ', 'smith')
+My name is   smith
+
+
+## error check
+>>> say_my_name(None)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> say_my_name(4)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> say_my_name(str)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> say_my_name('john', None)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+>>> say_my_name('john', str)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+>>> say_my_name(['john'], 'smith')
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> say_my_name(['j', 'o', 'h', 'n'])
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> say_my_name(None, None)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> say_my_name(str, str)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> say_my_name(str, 'john')
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> say_my_name('john', ['smith'])
+Traceback (most recent call last):
+TypeError: last_name must be a string
+>>> say_my_name('john', ['s', 'm', 'i', 't', 'h'])
+Traceback (most recent call last):
+TypeError: last_name must be a string

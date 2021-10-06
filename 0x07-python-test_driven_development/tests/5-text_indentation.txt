@@ -1,0 +1,64 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text_indentation('abc')
+abc
+>>> text_indentation('.a.b.c.')
+.
+<BLANKLINE>
+a.
+<BLANKLINE>
+b.
+<BLANKLINE>
+c.
+<BLANKLINE>
+
+## spaces on edges
+>>> text_indentation(' abc')
+abc
+>>> text_indentation('abc ')
+abc
+>>> text_indentation('  abc   ')
+abc
+>>> text_indentation(' abc  .')
+abc  .
+<BLANKLINE>
+>>> text_indentation(' . abc ,? ?  ')
+.
+<BLANKLINE>
+abc ,?
+<BLANKLINE>
+?
+<BLANKLINE>
+
+>>> text_indentation(' . abc ,?      m  ?  ')
+.
+<BLANKLINE>
+abc ,?
+<BLANKLINE>
+m  ?
+<BLANKLINE>
+
+>>> text_indentation('')
+>>> text_indentation('   ')
+>>> text_indentation('\n   ')
+<BLANKLINE>
+>>> text_indentation('   \n')
+<BLANKLINE>
+>>> text_indentation('   \n  ')
+<BLANKLINE>
+>>> text_indentation('.\n.')
+.
+<BLANKLINE>
+<BLANKLINE>
+.
+<BLANKLINE>
+
+>>> text_indentation(5)
+Traceback (most recent call last):
+TypeError: text must be a string
+>>> text_indentation(str)
+Traceback (most recent call last):
+TypeError: text must be a string
+>>> text_indentation(0)
+Traceback (most recent call last):
+TypeError: text must be a string

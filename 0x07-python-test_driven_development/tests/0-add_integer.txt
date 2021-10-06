@@ -1,0 +1,70 @@
+# import module
+>>> add_integer = __import__('0-add_integer').add_integer
+
+# add simple integers
+>>> add_integer(5, 6)
+11
+>>> add_integer(10, 20)
+30
+
+# add simple negative integers
+>>> add_integer(-5, -6)
+-11
+>>> add_integer(-10, -20)
+-30
+>>> add_integer(-4, 6)
+2
+>>> add_integer(10, -1)
+9
+
+# exteme tests
+>>> add_integer(1000000000000, 9000000000000)
+10000000000000
+>>> add_integer(-1000000000000, 9000000000000)
+8000000000000
+
+# simple floats
+>>> add_integer(1.0, 3.2)
+4
+>>> add_integer(-9, 4.3)
+-5
+>>> add_integer(-9, 4.6)
+-5
+>>> add_integer(-9.3, 4)
+-5
+>>> add_integer(-9.9, 4)
+-5
+
+# testing if floats are casted rather than rounded
+>>> add_integer(6.99999, 2.899)
+8
+>>> add_integer(-9.9999999999, -1.999999)
+-10
+
+# extreme floats
+>>> add_integer(1000000000000.299499, 9000000000000.639)
+10000000000000
+>>> add_integer(-1000000000000.949, 9000000000000.00000394)
+8000000000000
+
+
+# type checks
+>>> add_integer('1', 2)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer('1', '2')
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(1, '2')
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(1 + 0j, 2.0)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(1, 2 + 0j)
+Traceback (most recent call last):
+TypeError: b must be an integer
