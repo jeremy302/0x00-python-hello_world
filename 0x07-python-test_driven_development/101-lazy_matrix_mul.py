@@ -18,5 +18,4 @@ def lazy_matrix_mul(m_a, m_b):
         m_b (list): a matrix
     '''
 
-    r = np.matmul(m_a, m_b)
-    return r.tolist()
+    return np.matmul(m_a, m_b).tolist()
