@@ -47,7 +47,6 @@
 >>> add_integer(-1000000000000.949, 9000000000000.00000394)
 8000000000000
 
-
 # type checks
 >>> add_integer('1', 2)
 Traceback (most recent call last):
@@ -68,3 +67,13 @@ TypeError: a must be an integer
 >>> add_integer(1, 2 + 0j)
 Traceback (most recent call last):
 TypeError: b must be an integer
+
+>>> add_integer(float("inf"), 1)
+Traceback (most recent call last):
+TypeError: a must be an integer
+>>> add_integer(float("-inf"), 1)
+Traceback (most recent call last):
+TypeError: a must be an integer
+>>> add_integer(float("nan"), 1)
+Traceback (most recent call last):
+TypeError: a must be an integer
