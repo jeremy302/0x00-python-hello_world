@@ -47,6 +47,11 @@
 >>> add_integer(-1000000000000.949, 9000000000000.00000394)
 8000000000000
 
+# default args
+>>> add_integer(1)
+99
+
+
 # type checks
 >>> add_integer('1', 2)
 Traceback (most recent call last):
