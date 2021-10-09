@@ -64,11 +64,13 @@ void print_python_string(PyObject * p)
 	printf("  length: %ld\n", len);
 	printf("  value: ");
 
-	setlocale(LC_ALL, "");
+	setlocale(LC_ALL, "C.UTF-8");
 	for (i = 0; i < len; ++i)
 	{
+		char *format = "%lc";
+
 		code_point = PyUnicode_READ(kind, data, i);
-		wprintf(L"%lc", (wint_t)code_point);
+		printf(format, (wint_t)code_point);
 	}
 	printf("\n");
 }
