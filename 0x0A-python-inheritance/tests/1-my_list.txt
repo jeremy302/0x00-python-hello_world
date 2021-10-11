@@ -19,6 +19,8 @@
 [1, 2, 3]
 >>> MyList([3, 2, 1]).print_sorted()
 [1, 2, 3]
+>>> MyList([3, 2, 1, True, 1, -1, -10, False]).print_sorted()
+[-10, -1, False, 1, True, 1, 2, 3]
 
 # side effects check
 >>> ls = MyList([3, 2, 1])
