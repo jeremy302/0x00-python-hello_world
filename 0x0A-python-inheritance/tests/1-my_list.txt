@@ -11,9 +11,20 @@
 [1, 2, 3]
 
 ## printing tests
+>>> MyList().print_sorted()
+[]
 >>> MyList([]).print_sorted()
 []
 >>> MyList([1, 2, 3]).print_sorted()
 [1, 2, 3]
 >>> MyList([3, 2, 1]).print_sorted()
 [1, 2, 3]
+
+
+## errors tests
+>>> MyList(4)
+Traceback (most recent call last)
+TypeError: 'int' object is not iterable
+>>> MyList([1, 2, 3]).print_sorted(1)
+Traceback (most recent call last)
+TypeError: print_sorted() takes 1 positional argument but 2 were given
