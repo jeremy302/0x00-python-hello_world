@@ -19,11 +19,10 @@ class BaseGeometry:
 
 class Rectangle(BaseGeometry):
     ''' a rectangle class '''
-    def __init__(self, width=0, height=0):
+    def __init__(self, width, height):
         ''' constructs a rectangle '''
         super().__init__()
-        self.__width = width
-        self.__height = height
-
         self.integer_validator('width', width)
         self.integer_validator('height', height)
+        self.__width = width
+        self.__height = height
