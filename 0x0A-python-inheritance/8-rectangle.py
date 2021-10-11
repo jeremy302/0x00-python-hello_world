@@ -21,6 +21,7 @@ class Rectangle(BaseGeometry):
     ''' a rectangle class '''
     def __init__(self, width=0, height=0):
         ''' constructs a rectangle '''
+        super().__init__()
         self.__width = width
         self.__height = height
 
