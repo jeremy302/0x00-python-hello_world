@@ -3,6 +3,7 @@
 >>> v = BaseGeometry()
 
 >>> v.integer_validator('key', 1)
+>>> v.integer_validator('key', True)
 
 
 ## error checks
