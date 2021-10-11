@@ -1,0 +1,19 @@
+>>> MyList = __import__('1-my_list').MyList
+
+## construction tests
+>>> MyList()
+[]
+>>> MyList([1, 2, 3])
+[1, 2, 3]
+>>> MyList([3, 2, 1])
+[3, 2, 1]
+>>> MyList((1, 2, 3))
+[1, 2, 3]
+
+## printing tests
+>>> MyList([]).print_sorted()
+[]
+>>> MyList([1, 2, 3]).print_sorted()
+[1, 2, 3]
+>>> MyList([3, 2, 1]).print_sorted()
+[1, 2, 3]
