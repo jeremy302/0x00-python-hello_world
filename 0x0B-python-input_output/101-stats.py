@@ -21,6 +21,7 @@ def print_logs():
 def sigint(sig, sframe):
     ''' SIGINT handler '''
     print_logs()
+    exit(0)
     signal.default_int_handler()
 
 
@@ -29,15 +30,17 @@ def main():
     global count, status_codes, total_file_size
 
     signal.signal(signal.SIGINT, sigint)
-    r = re.compile(r'(?P<ip_address>.*) - \[(?P<date>.+)\] ".+" ' +
+    r = re.compile(r'(?P<ip_address>.*) - \[(?P<date>.+)\] ' +
+                   r'"GET /projects/260 HTTP/1.1" ' +
                    r'(?P<status_code>\d+) (?P<file_size>\d+)\w*$')
     while True:
         count += 1
         try:
             match = r.match(input()).groupdict()
+            if not match:
+                continue
         except EOFError:
-            if (count - 1) % 10:
-                print_logs()
+            print_logs()
             exit(0)
         status_code = int(match['status_code'])
         if status_code in status_codes:
