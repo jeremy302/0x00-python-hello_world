@@ -2,6 +2,7 @@
 ''' script for processing requests logs '''
 from sys import stdin
 
+
 count = 0
 status_codes = {'200': 0, '301': 0, '400': 0, '401': 0,
                 '403': 0, '404': 0, '405': 0, '500': 0}
@@ -17,7 +18,7 @@ def print_logs():
             print('{}: {}'.format(key, val), flush=True)
 
 
-def start_logging():
+def main():
     ''' logs network requests '''
     global count, status_codes, total_size
     try:
@@ -38,5 +39,6 @@ def start_logging():
     except KeyboardInterrupt:
         print_logs()
 
+
 if __name__ == '__main__':
-    start_logging()
+    main()
