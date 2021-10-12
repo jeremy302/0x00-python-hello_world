@@ -36,6 +36,7 @@ def main():
         try:
             match = r.match(input()).groupdict()
         except EOFError:
+            print_logs()
             exit(0)
         status_code = int(match['status_code'])
         if status_code in status_codes:
