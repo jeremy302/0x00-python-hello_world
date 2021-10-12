@@ -30,19 +30,20 @@ def main():
 
     signal.signal(signal.SIGINT, sigint)
     r = re.compile(r'(?P<ip_address>.*) - \[(?P<date>.+)\] ".+" ' +
-                   r'(?P<status_code>\d+) (?P<file_size>\d+)')
+                   r'(?P<status_code>\d+) (?P<file_size>\d+)\w*$')
     while True:
         count += 1
         try:
             match = r.match(input()).groupdict()
         except EOFError:
-            print_logs()
+            if (count - 1) % 10:
+                print_logs()
             exit(0)
         status_code = int(match['status_code'])
         if status_code in status_codes:
             status_codes[status_code] += 1
         total_file_size += int(match['file_size'])
-        if count and not count % 10:
+        if not count % 10:
             print_logs()
 
 if __name__ == '__main__':
