@@ -45,7 +45,7 @@ def main():
                 continue
         except EOFError:
             print_logs()
-            exit(0)
+            exit()
         except KeyboardInterrupt as er:
             print_logs()
             raise er
