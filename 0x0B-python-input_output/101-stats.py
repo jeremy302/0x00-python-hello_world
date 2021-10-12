@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 ''' script for processing requests logs '''
-import signal
-import re
 from sys import stdin
 
 count = 0
@@ -13,27 +11,27 @@ total_size = 0
 def print_logs():
     ''' prints the logs '''
     global status_codes, total_size
-    print('File size: {}'.format(total_size))
+    print('File size: {}'.format(total_size), flush=True)
     for key, val in sorted(status_codes.items(), key=lambda v: v[0]):
         if val:
-            print('{}: {}'.format(key, val))
+            print('{}: {}'.format(key, val), flush=True)
 
 
-def main():
+def start_logging():
     ''' logs network requests '''
     global count, status_codes, total_size
     try:
         for line in stdin:
-            parts = line.split(' ')
+            parts = line.strip().split(' ')
             if len(parts) < 2:
                 continue
+            count += 1
             status_code = parts[-2]
             file_size = parts[-1]
-            if status_code not in status_codes:
+            if status_code not in status_codes.keys():
                 continue
             status_codes[status_code] += 1
             total_size += int(file_size)
-            count += 1
             if count % 10 == 0:
                 print_logs()
         print_logs()
@@ -41,4 +39,4 @@ def main():
         print_logs()
 
 if __name__ == '__main__':
-    main()
+    start_logging()
