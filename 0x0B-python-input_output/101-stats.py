@@ -2,6 +2,7 @@
 ''' script for processing requests logs '''
 import signal
 import re
+import sys
 
 count = 0
 status_codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
@@ -23,14 +24,14 @@ def sigint(sig, sframe):
     if count % 10:
         print_logs()
     signal.default_int_handler()
-    exit(0)
+    exit(1)
 
 
 def main():
     ''' logs network requests '''
     global count, status_codes, total_file_size
 
-    signal.signal(signal.SIGINT, sigint)
+    # signal.signal(signal.SIGINT, sigint)
     r = re.compile(r'(?P<ip_address>.*) - \[(?P<date>.+)\] ' +
                    r'"GET /projects/260 HTTP/1.1" ' +
                    r'(?P<status_code>\d+) (?P<file_size>\d+)\w*$')
@@ -43,6 +44,9 @@ def main():
         except EOFError:
             print_logs()
             exit(0)
+        except KeyboardInterrupt as er:
+            print_logs()
+            raise er
         status_code = int(match['status_code'])
         if status_code in status_codes:
             status_codes[status_code] += 1
