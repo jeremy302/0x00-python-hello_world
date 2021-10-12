@@ -20,8 +20,8 @@ def print_logs():
 
 def sigint(sig, sframe):
     ''' SIGINT handler '''
-    exit(0)
-    print_logs()
+    if count % 10:
+        print_logs()
     signal.default_int_handler()
 
 
