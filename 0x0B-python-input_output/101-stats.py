@@ -24,15 +24,13 @@ def main():
     try:
         for line in stdin:
             parts = line.strip().split(' ')
-            if len(parts) < 2:
-                continue
+            if len(parts) >= 2:
+                status_code = parts[-2]
+                file_size = parts[-1]
+                total_size += int(file_size)
+                if status_code in status_codes.keys():
+                    status_codes[status_code] += 1
             count += 1
-            status_code = parts[-2]
-            file_size = parts[-1]
-            if status_code not in status_codes.keys():
-                continue
-            status_codes[status_code] += 1
-            total_size += int(file_size)
             if count % 10 == 0:
                 print_logs()
         print_logs()
