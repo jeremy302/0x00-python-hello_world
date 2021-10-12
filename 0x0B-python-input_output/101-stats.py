@@ -20,8 +20,8 @@ def print_logs():
 
 def sigint(sig, sframe):
     ''' SIGINT handler '''
-    print_logs()
     exit(0)
+    print_logs()
     signal.default_int_handler()
 
 
