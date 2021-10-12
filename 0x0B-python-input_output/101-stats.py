@@ -23,6 +23,7 @@ def sigint(sig, sframe):
     if count % 10:
         print_logs()
     signal.default_int_handler()
+    exit(0)
 
 
 def main():
@@ -45,9 +46,9 @@ def main():
         status_code = int(match['status_code'])
         if status_code in status_codes:
             status_codes[status_code] += 1
-        total_file_size += int(match['file_size'])
-        if not count % 10:
-            print_logs()
+            total_file_size += int(match['file_size'])
+            if not count % 10:
+                print_logs()
 
 if __name__ == '__main__':
     main()
