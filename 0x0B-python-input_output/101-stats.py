@@ -33,7 +33,10 @@ def main():
                    r'(?P<status_code>\d+) (?P<file_size>\d+)')
     while True:
         count += 1
-        match = r.match(input()).groupdict()
+        try:
+            match = r.match(input()).groupdict()
+        except EOFError:
+            exit(0)
         status_code = int(match['status_code'])
         if status_code in status_codes:
             status_codes[status_code] += 1
