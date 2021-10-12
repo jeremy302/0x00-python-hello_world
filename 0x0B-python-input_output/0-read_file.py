@@ -5,4 +5,4 @@
 def read_file(filename=""):
     ''' prints the contents of a file '''
     with open(filename) as file:
-        print(file.read())
+        print(file.read(), end='')
