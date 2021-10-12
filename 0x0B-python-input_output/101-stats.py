@@ -38,16 +38,21 @@ def main():
     while True:
         count += 1
         try:
-            match = r.match(input()).groupdict()
+            inp = input()
+            match = r.match(inp).groupdict()
+            spl = inp.split(' ')
             if not match:
                 continue
         except EOFError:
             print_logs()
             exit(0)
-        status_code = int(match['status_code'])
+        except KeyboardInterrupt as er:
+            print_logs()
+            raise er
+        status_code = int(spl[-2])  # int(match['status_code'])
         if status_code in status_codes:
             status_codes[status_code] += 1
-            total_file_size += int(match['file_size'])
+            total_file_size += int(spl[-1])  # int(match['file_size'])
             if not count % 10:
                 print_logs()
 
