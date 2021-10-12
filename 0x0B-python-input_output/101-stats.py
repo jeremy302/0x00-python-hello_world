@@ -14,9 +14,9 @@ def print_logs():
     global status_codes, total_file_size
 
     print('File size: {:d}'.format(total_file_size))
-    for code, tally in status_codes.items():
-        if tally:
-            print('{:d}: {:d}'.format(code, tally))
+    for status_code in sorted(status_codes.keys()):
+        if status_codes[status_code]:
+            print('{:d}: {:d}'.format(status_code, status_codes[status_code]))
 
 
 def sigint(sig, sframe):
