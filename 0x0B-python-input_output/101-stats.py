@@ -44,9 +44,6 @@ def main():
         except EOFError:
             print_logs()
             exit(0)
-        except KeyboardInterrupt as er:
-            print_logs()
-            raise er
         status_code = int(match['status_code'])
         if status_code in status_codes:
             status_codes[status_code] += 1
