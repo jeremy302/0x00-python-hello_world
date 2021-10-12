@@ -50,11 +50,11 @@ def main():
             print_logs()
             raise er
         status_code = int(spl[-2])  # int(match['status_code'])
-        if status_code in status_codes:
-            status_codes[status_code] += 1
-            total_file_size += int(spl[-1])  # int(match['file_size'])
-            if not count % 10:
-                print_logs()
+        # if status_code in status_codes:
+        status_codes[status_code] += 1
+        total_file_size += int(spl[-1])  # int(match['file_size'])
+        if not count % 10:
+            print_logs()
 
 if __name__ == '__main__':
     main()
