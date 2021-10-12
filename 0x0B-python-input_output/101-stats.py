@@ -42,7 +42,7 @@ def main():
             inp = input()
             match = r.match(inp).groupdict()
             spl = inp.split(' ')
-            if not match:
+            if len(spl) < 2:
                 continue
         except EOFError:
             print_logs()
