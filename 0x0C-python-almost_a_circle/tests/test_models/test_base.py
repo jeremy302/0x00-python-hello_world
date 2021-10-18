@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 ''' testing module '''
 from unittest import TestCase
 import json
@@ -261,13 +262,13 @@ class TestBase(TestCase):
         with open('Rectangle.csv', 'r') as file:
             rows = list(csv.reader(file))
             self.assertEqual([r for r in rows if r],
-                              [['5', '1', '2', '3', '4'],
-                               ['1', '5', '4', '3', '2']])
+                             [['5', '1', '2', '3', '4'],
+                              ['1', '5', '4', '3', '2']])
         r_ls = Rectangle.load_from_file_csv()
         self.assertEqual(type(r_ls), list)
         self.assertEqual(len(r_ls), 2)
         self.assertEqual([r.to_dictionary() for r in r_ls],
-                          [r1.to_dictionary(), r2.to_dictionary()])
+                         [r1.to_dictionary(), r2.to_dictionary()])
 
         Square.save_to_file_csv([])
         with open('Square.csv', 'r') as file:
@@ -283,10 +284,9 @@ class TestBase(TestCase):
         with open('Square.csv', 'r') as file:
             rows = list(csv.reader(file))
             self.assertEqual([r for r in rows if r],
-                              [['5', '2', '3', '4'],
-                               ['2', '5', '4', '3']])
+                             [['5', '2', '3', '4'], ['2', '5', '4', '3']])
         s_ls = Square.load_from_file_csv()
         self.assertEqual(type(s_ls), list)
         self.assertEqual(len(s_ls), 2)
         self.assertEqual([s.to_dictionary() for s in s_ls],
-                          [s1.to_dictionary(), s2.to_dictionary()])
+                         [s1.to_dictionary(), s2.to_dictionary()])

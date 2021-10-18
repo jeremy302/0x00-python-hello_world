@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 ''' module for the class: Square '''
 from .rectangle import Rectangle
 
