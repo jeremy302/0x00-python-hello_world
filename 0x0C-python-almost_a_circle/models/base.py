@@ -100,8 +100,8 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        from turtle import Turtle
         '''  draws squares and rectangles in a Turtle window '''
+        from turtle import Turtle
         dims = [*[((obj.x, obj.y), (obj.width, obj.height))
                   for obj in list_rectangles],
                 *[((obj.x, obj.y), (obj.size, obj.size))
