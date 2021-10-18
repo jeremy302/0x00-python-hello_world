@@ -103,9 +103,9 @@ class Base:
         '''  draws squares and rectangles in a Turtle window '''
         from turtle import Turtle
         dims = [((obj.x, obj.y), (obj.width, obj.height))
-                for obj in list_rectangles].extend(
-                        [((obj.x, obj.y), (obj.size, obj.size))
-                         for obj in list_squares]]
+                for obj in list_rectangles]
+        dims.extend([((obj.x, obj.y), (obj.size, obj.size))
+                     for obj in list_squares])
         t = Turtle()
         for pos, sz in dims:
             t.pu()
