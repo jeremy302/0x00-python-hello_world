@@ -3,7 +3,6 @@
 import os
 import json
 import csv
-from turtle import Turtle
 
 
 class Base:
@@ -101,6 +100,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
+        from turtle import Turtle
         '''  draws squares and rectangles in a Turtle window '''
         dims = [*[((obj.x, obj.y), (obj.width, obj.height))
                   for obj in list_rectangles],
