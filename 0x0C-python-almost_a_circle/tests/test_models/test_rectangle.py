@@ -33,10 +33,12 @@ class TestRectangle(TestCase):
         # args check
         with self.assertRaises(TypeError) as ctx:
             Rectangle()
-        self.assertEqual(str(ctx.exception), "__init__() missing 2 required positional arguments: 'width' and 'height'")
+        self.assertEqual(str(ctx.exception), "__init__() missing 2 " +
+                         "required positional arguments: 'width' and 'height'")
         with self.assertRaises(TypeError) as ctx:
             Rectangle(1)
-        self.assertEqual(str(ctx.exception), "__init__() missing 1 required positional argument: 'height'")
+        self.assertEqual(str(ctx.exception), "__init__() missing 1 " +
+                         "required positional argument: 'height'")
 
         r4 = Rectangle(1, 1)
         self.assertEqual(r4.x, 0)

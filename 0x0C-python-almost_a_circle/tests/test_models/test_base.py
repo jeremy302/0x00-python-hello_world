@@ -250,43 +250,43 @@ class TestBase(TestCase):
         Rectangle.save_to_file_csv([])
         with open('Rectangle.csv', 'r') as file:
             rows = list(csv.reader(file))
-            self.assertEquals(rows, [])
+            self.assertEqual(rows, [])
         r_ls = Rectangle.load_from_file_csv()
-        self.assertEquals(type(r_ls), list)
-        self.assertEquals(len(r_ls), 0)
+        self.assertEqual(type(r_ls), list)
+        self.assertEqual(len(r_ls), 0)
 
         r1 = Rectangle(1, 2, 3, 4, 5)
         r2 = Rectangle(5, 4, 3, 2, 1)
         Rectangle.save_to_file_csv([r1, r2])
         with open('Rectangle.csv', 'r') as file:
             rows = list(csv.reader(file))
-            self.assertEquals([r for r in rows if r],
+            self.assertEqual([r for r in rows if r],
                               [['5', '1', '2', '3', '4'],
                                ['1', '5', '4', '3', '2']])
         r_ls = Rectangle.load_from_file_csv()
-        self.assertEquals(type(r_ls), list)
-        self.assertEquals(len(r_ls), 2)
-        self.assertEquals([r.to_dictionary() for r in r_ls],
+        self.assertEqual(type(r_ls), list)
+        self.assertEqual(len(r_ls), 2)
+        self.assertEqual([r.to_dictionary() for r in r_ls],
                           [r1.to_dictionary(), r2.to_dictionary()])
 
         Square.save_to_file_csv([])
         with open('Square.csv', 'r') as file:
             rows = list(csv.reader(file))
-            self.assertEquals(rows, [])
+            self.assertEqual(rows, [])
         s_ls = Square.load_from_file_csv()
-        self.assertEquals(type(s_ls), list)
-        self.assertEquals(len(s_ls), 0)
+        self.assertEqual(type(s_ls), list)
+        self.assertEqual(len(s_ls), 0)
 
         s1 = Square(2, 3, 4, 5)
         s2 = Square(5, 4, 3, 2)
         Square.save_to_file_csv([s1, s2])
         with open('Square.csv', 'r') as file:
             rows = list(csv.reader(file))
-            self.assertEquals([r for r in rows if r],
+            self.assertEqual([r for r in rows if r],
                               [['5', '2', '3', '4'],
                                ['2', '5', '4', '3']])
         s_ls = Square.load_from_file_csv()
-        self.assertEquals(type(s_ls), list)
-        self.assertEquals(len(s_ls), 2)
-        self.assertEquals([s.to_dictionary() for s in s_ls],
+        self.assertEqual(type(s_ls), list)
+        self.assertEqual(len(s_ls), 2)
+        self.assertEqual([s.to_dictionary() for s in s_ls],
                           [s1.to_dictionary(), s2.to_dictionary()])

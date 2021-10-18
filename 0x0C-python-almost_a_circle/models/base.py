@@ -47,12 +47,12 @@ class Base:
         arg_ls = ([] if cls is Base else [1, 1]
                   if cls.__name__ == 'Rectangle' else [1]
                   if cls.__name__ == 'Square' else
-                  list(1 for i in range(cls.__init__.__code__.co_argcount - 2)))
+                  list(1 for i in
+                       range(cls.__init__.__code__.co_argcount - 2)))
         obj = cls(*(arg_ls))
         # obj.__dict__.update(dictionary)
-        for k,v in dictionary.items():
+        for k, v in dictionary.items():
             setattr(obj, k, v)
-        # print(obj.__dict__)
         return obj
 
     @classmethod

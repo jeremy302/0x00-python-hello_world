@@ -82,6 +82,12 @@ class TestSquare(TestCase):
             Square(0, -1, -1, 5)
         self.assertEqual(str(ctx.exception), 'width must be > 0')
 
+        # arg checks
+        with self.assertRaises(TypeError) as ctx:
+            Square()
+        self.assertEqual(str(ctx.exception), "__init__() missing 1 " +
+                         "required positional argument: 'size'")
+
     def test_11(self):
         ''' task 11 tests '''
 
