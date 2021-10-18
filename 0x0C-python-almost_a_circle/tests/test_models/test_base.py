@@ -15,15 +15,18 @@ class TestBase(TestCase):
 
     @staticmethod
     def base_json(obj):
+        ''' gets the dict representation of a Base shape '''
         return {'id': obj.id}
 
     @staticmethod
     def rect_json(obj):
+        ''' gets the dict representation of a Rectangle shape '''
         return {"id": obj.id, "width": obj.width, "height": obj.height,
                 "x": obj.x, "y": obj.y}
 
     @staticmethod
     def sq_json(obj):
+        ''' gets the dict representation of a Square shape '''
         return {"id": obj.id, "size": obj.size, "x": obj.x, "y": obj.y}
 
     def test_0(self):
@@ -172,6 +175,7 @@ class TestBase(TestCase):
         self.assertEqual(str(ctx.exception), 'width must be an integer')
 
     def test_19(self):
+        ''' task 19 tests '''
         os.remove('Base.json')
         os.remove('Rectangle.json')
         os.remove('Square.json')
