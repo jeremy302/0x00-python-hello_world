@@ -5,9 +5,9 @@ import json
 import os
 import csv
 
-Base = __import__('models.base').Base
-Rectangle = __import__('models.rectangle').Rectangle
-Square = __import__('models.square').Square
+Base = __import__('models.base').base.Base
+Rectangle = __import__('models.rectangle').rectangle.Rectangle
+Square = __import__('models.square').square.Square
 
 
 class TestBase(TestCase):
