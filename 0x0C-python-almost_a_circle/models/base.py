@@ -97,3 +97,17 @@ class Base:
                         cls(id=int(row[0]), width=int(row[1]),
                             height=int(row[2]), x=int(row[3]), y=int(row[4])))
             return ls
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        '''  draws squares and rectangles in a Turtle window '''
+        from turtle import Turtle
+        dims = []
+        t = Turtle()
+        for pos, sz in dims:
+            t.pu()
+            t.goto(*pos)
+            t.pd()
+            for i in range(4):
+                t.fd(sz[i % 2])
+                t.right(90)
