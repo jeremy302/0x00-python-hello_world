@@ -87,6 +87,7 @@ class TestBase(TestCase):
         Rectangle.save_to_file(None)
         with open('Rectangle.json', 'r') as file:
             self.assertEqual(json.loads(file.read()), [])
+        os.unlink('Rectangle.json')
         Rectangle.save_to_file([])
         with open('Rectangle.json', 'r') as file:
             self.assertEqual(json.loads(file.read()), [])
@@ -106,6 +107,7 @@ class TestBase(TestCase):
         Square.save_to_file(None)
         with open('Square.json', 'r') as file:
             self.assertEqual(json.loads(file.read()), [])
+        os.unlink('Square.json')
         Square.save_to_file([])
         with open('Square.json', 'r') as file:
             self.assertEqual(json.loads(file.read()), [])
