@@ -40,3 +40,11 @@ class TestBase(TestCase):
         self.assertEqual(Base(-10).id, -10)
         self.assertEqual(Base(10).id, 10)
         self.assertEqual(Base().id, 5)
+
+    def test_15(self):
+        ''' task 15 tests '''
+        self.assertEqual(Base.to_json_string(None), '[]')
+        self.assertEqual(Base.to_json_string([]), '[]')
+        self.assertEqual(Base.to_json_string([{}]), '[{}]')
+        self.assertEqual(Base.to_json_string([{'key': 'val'}]),
+                         '[{"key": "val"}]')
