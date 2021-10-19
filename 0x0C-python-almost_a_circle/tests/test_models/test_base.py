@@ -65,6 +65,12 @@ class TestBase(TestCase):
         s1 = Square(1, 2, 3, 4)
         s2 = Square(4, 3, 2, 1)
 
+        Base.save_to_file(None)
+        with open('Base.json', 'r') as file:
+            self.assertEqual(json.loads(file.read()), [])
+        Base.save_to_file([])
+        with open('Base.json', 'r') as file:
+            self.assertEqual(json.loads(file.read()), [])
         Base.save_to_file([b1])
         with open('Base.json', 'r') as file:
             self.assertEqual(json.loads(file.read()), [TestBase.base_json(b1)])
@@ -78,6 +84,12 @@ class TestBase(TestCase):
                              [TestBase.base_json(b1), TestBase.base_json(b2),
                               TestBase.base_json(b2)])
 
+        Rectangle.save_to_file(None)
+        with open('Rectangle.json', 'r') as file:
+            self.assertEqual(json.loads(file.read()), [])
+        Rectangle.save_to_file([])
+        with open('Rectangle.json', 'r') as file:
+            self.assertEqual(json.loads(file.read()), [])
         Rectangle.save_to_file([r1])
         with open('Rectangle.json', 'r') as file:
             self.assertEqual(json.loads(file.read()), [TestBase.rect_json(r1)])
@@ -91,6 +103,12 @@ class TestBase(TestCase):
                              [TestBase.rect_json(r1),
                               TestBase.rect_json(r2), TestBase. rect_json(r2)])
 
+        Square.save_to_file(None)
+        with open('Square.json', 'r') as file:
+            self.assertEqual(json.loads(file.read()), [])
+        Square.save_to_file([])
+        with open('Square.json', 'r') as file:
+            self.assertEqual(json.loads(file.read()), [])
         Square.save_to_file([s1])
         with open('Square.json', 'r') as file:
             self.assertEqual(json.loads(file.read()), [TestBase.sq_json(s1)])

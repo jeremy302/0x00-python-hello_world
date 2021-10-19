@@ -34,6 +34,26 @@ class TestSquare(TestCase):
         self.assertEqual(s1.y, 3)
         self.assertEqual(s1.id, 4)
 
+        s1 = Square(1)
+        self.assertEqual(str(s1), '[Square] ({}) 0/0 - 1'.format(s1.id))
+        self.assertEqual(str(Square(15, 2, 3, 4)), '[Square] (4) 2/3 - 15')
+
+        with io.StringIO() as stout:
+            with contextlib.redirect_stdout(stout):
+                Square(1, 0, 0).display()
+            self.assertEqual(stout.getvalue(), '#\n')
+
+        with io.StringIO() as stout:
+            with contextlib.redirect_stdout(stout):
+                Square(3, 1, 1).display()
+            self.assertEqual(stout.getvalue(), '\n ###\n ###\n ###\n')
+
+        with io.StringIO() as stout:
+            with contextlib.redirect_stdout(stout):
+                Square(3, 6, 4).display()
+            self.assertEqual(stout.getvalue(),
+                             '\n\n\n\n      ###\n      ###\n      ###\n')
+
         with self.assertRaises(TypeError) as ctx:
             Square(1.0, 3, 4, 5)
         self.assertEqual(str(ctx.exception), 'width must be an integer')
