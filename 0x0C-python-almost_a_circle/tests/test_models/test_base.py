@@ -251,7 +251,6 @@ class TestBase(TestCase):
 
     def test_20(self):
         ''' task 20 tests '''
-        return
         Rectangle.save_to_file_csv([])
         with open('Rectangle.csv', 'r') as file:
             rows = list(csv.reader(file))
