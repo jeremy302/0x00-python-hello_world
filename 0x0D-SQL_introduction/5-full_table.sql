@@ -1,3 +1,3 @@
 -- prints `first_table` description
 -- db description
-DESC first_table;
+SHOW CREATE TABLE first_table;
