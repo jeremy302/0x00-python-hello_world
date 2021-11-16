@@ -8,3 +8,5 @@
 *.out
 TAGS
 tags
+*.json
+*.csv
