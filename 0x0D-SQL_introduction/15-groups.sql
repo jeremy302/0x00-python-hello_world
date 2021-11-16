@@ -1,3 +1,3 @@
 -- tallies `score` of rows
 -- group query
-SELECT score, count(*) from second_table GROUP BY score;
+SELECT score, count(*) FROM second_table GROUP BY score;

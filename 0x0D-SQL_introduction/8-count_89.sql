@@ -1,3 +1,3 @@
 -- counts records in `first_table` with an id of 89
 -- counts matching rows
-SELECT COUNT(*) from `first_table` where `id` = 89;
+SELECT COUNT(*) FROM `first_table` WHERE `id` = 89;
