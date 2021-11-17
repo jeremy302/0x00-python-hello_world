@@ -1,4 +1,3 @@
 # Project 0x0D. SQL - Introduction
-
-### Scripts Descriptions
+Introduction to basic sql features.
 

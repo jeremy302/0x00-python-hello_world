@@ -1,14 +1,2 @@
-# Project 
-
-### Scripts Descriptions
-
-1. **0-** - 
-2. **1-** - 
-3. **2-** - 
-4. **3-** - 
-5. **4-** - 
-6. **5-** - 
-7. **100-** - 
-8. **101-** - 
-9. **102-** - 
-10. **103-** - 
+# Project 0x0E. SQL - More queries
+Complex queries in sql.
