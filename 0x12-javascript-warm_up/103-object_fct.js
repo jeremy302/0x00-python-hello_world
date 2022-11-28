@@ -4,7 +4,6 @@ const myObject = {
   value: 12
 };
 console.log(myObject);
-#!/usr/bin/node
 myObject.incr = () => myObject.value++;
 myObject.incr();
 console.log(myObject);
@@ -12,4 +11,3 @@ myObject.incr();
 console.log(myObject);
 myObject.incr();
 console.log(myObject);
-
