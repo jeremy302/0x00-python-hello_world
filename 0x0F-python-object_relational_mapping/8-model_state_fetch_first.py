@@ -17,5 +17,6 @@ if __name__ == "__main__":
         result = sess.query(State).order_by(State.id)
         row = result.first()
         if row:
-            print('{}: {}'.format(row.id, row.name), end='')
-        print()
+            print('{}: {}'.format(row.id, row.name))
+        else:
+            print('Nothing')
