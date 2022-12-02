@@ -13,8 +13,8 @@ if __name__ == "__main__":
                            .format(user, passwd, dbname))
     # Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
-    sess = Session()
-    row = State(name='Louisiana')
-    sess.add(row)
-    sess.commit()
-    print(row.id)
+    with Session() as sess:
+        row = State(name='Louisiana')
+        sess.add(row)
+        sess.commit()
+        print(row.id)

@@ -13,8 +13,8 @@ if __name__ == "__main__":
                            .format(user, passwd, dbname))
     # Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
-    sess = Session()
-    row = sess.query(State).filter_by(id=2).first()
-    if row:
-        row.name = 'New Mexico'
-        sess.commit()
+    with Session() as sess:
+        row = sess.query(State).filter_by(id=2).first()
+        if row:
+            row.name = 'New Mexico'
+            sess.commit()

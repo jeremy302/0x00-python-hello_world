@@ -13,10 +13,10 @@ if __name__ == "__main__":
                            .format(user, passwd, dbname))
     # Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
-    sess = Session()
-    result = sess.query(State).filter(State.name == state)
-    row = result.first()
-    if row:
-        print(row.id)
-    else:
-        print("Not found")
+    with Session() as sess:
+        result = sess.query(State).filter(State.name == state)
+        row = result.first()
+        if row:
+            print(row.id)
+        else:
+            print("Not found")

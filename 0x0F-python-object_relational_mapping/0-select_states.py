@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 ''' <TODO> docstring of the module for the relevant question '''
-from MySQLdb import connect
 import sys
+from MySQLdb import connect
+
 
 if __name__ == '__main__':
     host = 'localhost'

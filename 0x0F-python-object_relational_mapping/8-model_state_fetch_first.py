@@ -13,9 +13,9 @@ if __name__ == "__main__":
                            .format(user, passwd, dbname))
     # Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
-    sess = Session()
-    result = sess.query(State).order_by(State.id)
-    row = result.first()
-    if row:
-        print('{}: {}'.format(row.id, row.name), end='')
-    print()
+    with Session() as sess:
+        result = sess.query(State).order_by(State.id)
+        row = result.first()
+        if row:
+            print('{}: {}'.format(row.id, row.name), end='')
+        print()
