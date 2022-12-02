@@ -13,6 +13,7 @@ if __name__ == '__main__':
     cur.execute('select * from states where name="{0}" order by id;'
                 .format(name))
     for row in cur.fetchall():
-        print(row)
+        if row[1] == name:
+            print(row)
     cur.close()
     db.close()
