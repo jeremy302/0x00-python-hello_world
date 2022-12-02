@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+''' <TODO> docstring of the module for the relevant question '''
 from sqlalchemy import Column, ForeignKey, Integer, String
 
 from relationship_state import Base

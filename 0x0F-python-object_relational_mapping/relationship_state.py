@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+''' <TODO> docstring of the module for the relevant question '''
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
