@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# find_peak function
+''' contains find_peak function '''
 
 def find_peak(list_of_integers):
     ''' finds a peak in the list '''
