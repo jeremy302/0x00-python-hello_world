@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # find_peak function
 
-def find_peak(ls):
+def find_peak(list_of_integers):
     ''' finds a peak in the list '''
-    return max(ls or [None])
+    return max(list_of_integers or [None])
