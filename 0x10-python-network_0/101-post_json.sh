@@ -1,3 +1,3 @@
 #!/bin/bash
 # posts json
-curl -s --json "@$2" "$1"
+curl -s --data "$(cat "$2")" -H 'Content-Type: application/json' -H 'Accept: application/json' "$1"
