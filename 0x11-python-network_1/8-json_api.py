@@ -5,8 +5,8 @@ import requests
 
 
 if __name__ == '__main__':
-    url = sys.argv[1]
-    letter = (sys.argv[2:] or [''])[0]
+    url = 'http://0.0.0.0:5000/search_user'
+    letter = (sys.argv[1:] or [''])[0]
     res = requests.post(url, data={'q': letter})
     res_json = {}
     try:
