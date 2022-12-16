@@ -7,7 +7,7 @@ import requests
 if __name__ == '__main__':
     url = sys.argv[1]
     letter = (sys.argv[2:] or [''])[0]
-    res = requests.post(url, params={'q': letter})
+    res = requests.post(url, data={'q': letter})
     res_json = {}
     try:
         res_json = res.json()
