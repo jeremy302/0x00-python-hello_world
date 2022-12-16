@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# gets a header
+''' gets a header '''
 import sys
 import requests
 

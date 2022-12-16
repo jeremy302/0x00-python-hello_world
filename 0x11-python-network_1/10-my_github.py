@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# githup user api
+''' githup user api '''
 import sys
 import requests
 

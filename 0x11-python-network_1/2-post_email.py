@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# performs POST request
+''' performs POST request '''
 import sys
 import urllib.request
 import urllib.parse

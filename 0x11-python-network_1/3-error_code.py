@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# handles error
+''' handles error '''
 import sys
 import urllib.request
 import urllib.error

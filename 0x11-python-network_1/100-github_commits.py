@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# github commit api
+''' github commit api '''
 import sys
 import requests
 

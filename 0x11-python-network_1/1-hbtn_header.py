@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# gets header
+''' gets header '''
 import sys
 import urllib.request
 

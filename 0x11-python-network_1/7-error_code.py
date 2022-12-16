@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# checks error
+''' checks error '''
 import sys
 import requests
 
