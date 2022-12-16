@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 ''' performs GET request '''
-import urllib
+import urllib.request
 
 if __name__ == '__main__':
     with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as res:
