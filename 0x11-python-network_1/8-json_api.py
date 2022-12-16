@@ -17,4 +17,3 @@ if __name__ == '__main__':
             print(f'[{res_json.get("id")}] {res_json.get("name")}')
     except Exception:
         print('Not a valid JSON')
-        

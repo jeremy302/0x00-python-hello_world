@@ -6,7 +6,7 @@ import requests
 
 if __name__ == '__main__':
     url = sys.argv[1]
-    res = requests.post(url)
+    res = requests.get(url)
     if res.status_code >= 400:
         print('Error code:', res.status_code)
     else:
