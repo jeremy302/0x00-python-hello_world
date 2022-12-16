@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# performs GET request
+''' performs GET request '''
 import urllib
 
 if __name__ == '__main__':
