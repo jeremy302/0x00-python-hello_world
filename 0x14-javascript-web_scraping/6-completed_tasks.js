@@ -8,6 +8,6 @@ if (process.argv.length > 2) {
     b = JSON.parse(b);
     e && console.log(e);
     console.log(b.reduce((acc, v) =>
-      e.completed ? { ...acc, [e.userId]: (acc[e.userId] ?? 0) + 1 } : acc, {}));
+      v.completed ? { ...acc, [v.userId]: (acc[v.userId] ?? 0) + 1 } : acc, {}));
   });
 }
