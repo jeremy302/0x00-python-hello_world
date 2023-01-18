@@ -7,9 +7,8 @@ if (process.argv.length > 2) {
     if (e) {
       console.log(e);
     } else if (b) {
-      b = JSON.parse(b);
       const res = JSON.parse(b).results.filter(
-        v => v.characters.find(vd => md.match(/\/people\/18\/?$/))
+        v => v.characters.find(v2 => v2.match(/\/people\/18\/?$/))
       );
       console.log(res.length);
     }
