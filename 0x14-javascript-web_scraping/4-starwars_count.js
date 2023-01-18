@@ -6,10 +6,12 @@ if (process.argv.length > 2) {
   request(url, (e, r, b) => {
     if (e) {
       console.log(e);
-    } else if (b){
+    } else if (b) {
       b = JSON.parse(b);
-      console.log(b.results.reduce((acc, v) =>
-        acc + v.characters.some(c => c.endsWith('/people/18')), 0));
+      const res = JSON.parse(b).results.filter(
+        v => v.characters.find(vd => md.match(/\/people\/18\/?$/))
+      );
+      console.log(res.length);
     }
   });
 }
