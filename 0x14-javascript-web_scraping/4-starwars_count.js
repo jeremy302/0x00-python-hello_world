@@ -9,7 +9,7 @@ if (process.argv.length > 2) {
     } else {
       b = JSON.parse(b);
       console.log(b.results.reduce((acc, v) =>
-        v.characters.some(c => c.endsWith('/people/18')), 0));
+        acc + v.characters.some(c => c.endsWith('/people/18')), 0));
     }
   });
 }
